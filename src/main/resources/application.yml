@@ -29,3 +29,6 @@
         enabled: true
       serviceUrl:
         defaultZone: http://xiaoxinmo:xiaoxinmo@localhost:8081/eureka/
+  feign:
+    hystrix:
+      enabled: true
