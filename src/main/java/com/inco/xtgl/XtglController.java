@@ -24,8 +24,8 @@ public class XtglController {
         System.out.println("xtgl");
     }
 
-    @GetMapping("xkgl")
     //@HystrixCommand(fallbackMethod = "callXkgl")
+    @GetMapping("xkgl")
     public void xkgl(){
         feignTest.xkgl();
     }
