@@ -1,0 +1,20 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: inco-xtgl
+  #profiles:
+  #  active: dev #环境 可以通过这种方式使用 文件名+环境.文件类型的配置文件,还可用 group 和命名空间的防方式
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml #文件类型
+        #prefix: inco-xtgl #dataid的文件名
+        group: test
+        #namespace:
+        #shared-dataids: a.yaml,b.yaml #多个配置文件拆分时可以使用
+        #refreshable-dataids: a.yaml,b.yaml #多个配置文件拆分时可以使用 自动刷新
+
