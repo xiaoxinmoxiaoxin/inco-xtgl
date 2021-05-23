@@ -6,13 +6,30 @@ spring:
   #profiles:
   #  active: dev #环境 可以通过这种方式使用 文件名+环境.文件类型的配置文件,还可用 group 和命名空间的防方式
   cloud:
+
+    #阿里的注册中心和配置中心 比eureka和config更简单 就是强依赖mysql 5.6.5以上
     nacos:
       discovery:
-        server-addr: localhost:8848
+        server-addr: localhost:8888
       config:
-        server-addr: localhost:8848
+        server-addr: localhost:8888
         file-extension: yaml #文件类型
         #prefix: inco-xtgl #dataid的文件名
-        group: test
+        group: dev
         #namespace:
+        #shared-dataids: a.yaml,b.yaml #多个配置文件拆分时可以使用
+        #refreshable-dataids: a.yaml,b.yaml #多个配置文件拆分时可以使用 自动刷新
 
+    #阿里的熔断 比hystrix更强大
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+
+      #这个是使用nacos中配置文件里的限流规则
+      datasource:
+        ds:
+          nacos:
+            server-addr: localhost:8888 #nacos的访问地址，，根据上面准备工作中启动的实例配置
+            data-id: inco-xtgl-sentinel #nacos中存储规则的dataId
+            group-id: dev #nacos中存储规则的groupId
+            rule-type: flow #定义存储的规则类型。枚举类：org.springframework.cloud.alibaba.sentinel.datasource.RuleType

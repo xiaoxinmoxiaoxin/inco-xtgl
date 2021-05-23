@@ -1,18 +1,16 @@
 package com.inco.xtgl;
 
-import com.alibaba.nacos.api.config.annotation.NacosValue;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.alibaba.cloud.sentinel.datasource.config.NacosDataSourceProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-@RefreshScope
+//@RefreshScope
 @RequestMapping("xtgl")
 public class XtglController {
 
@@ -22,15 +20,19 @@ public class XtglController {
     @Autowired
     private FeignTest feignTest;
 
-
-    @Value("${test:1}")
+    @Autowired
+    private XtglService xtglService;
+    //@Value("${test:1}")
     private String test;
 
     @GetMapping("xtgl")
     public void xtgl(){
-        System.out.println(test);
+        //xtglService.rongDuan("hhhhhhhh");
+       // xtglService.jiangJi("yyyyyyyy");
         String str=null;
-        str.equals("111");
+        NacosDataSourceProperties a=null;
+
+       // str.equals("111");
 
     }
 

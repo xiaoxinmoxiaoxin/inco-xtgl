@@ -1,0 +1,5 @@
+com\inco\xtgl\IncoXtglApplication.class
+com\inco\xtgl\XtglController.class
+com\inco\xtgl\FeignTestFallBack.class
+com\inco\xtgl\XtglService.class
+com\inco\xtgl\FeignTest.class

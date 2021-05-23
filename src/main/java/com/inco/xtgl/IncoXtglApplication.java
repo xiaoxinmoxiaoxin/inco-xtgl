@@ -1,5 +1,6 @@
 package com.inco.xtgl;
 
+import com.alibaba.csp.sentinel.annotation.aspectj.SentinelResourceAspect;
 import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,7 +18,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableDiscoveryClient
 
 @EnableFeignClients
-@EnableHystrix
+//@EnableHystrix
 public class IncoXtglApplication {
 
     public static void main(String[] args) {
@@ -30,6 +31,12 @@ public class IncoXtglApplication {
         return new RestTemplate();
     }
 
+
+    // 注解支持的配置Bean
+    @Bean
+    public SentinelResourceAspect sentinelResourceAspect() {
+        return new SentinelResourceAspect();
+    }
 
   /*  @Bean
     public ServletRegistrationBean getServlet() {
