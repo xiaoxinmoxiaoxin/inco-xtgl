@@ -4,11 +4,9 @@ package com.inco.xtgl;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest
 class IncoXtglApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+
 
 }
