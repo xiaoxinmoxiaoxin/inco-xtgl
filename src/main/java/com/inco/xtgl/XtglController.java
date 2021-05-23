@@ -26,11 +26,13 @@ public class XtglController {
     private String test;
 
     @GetMapping("xtgl")
-    public void xtgl(){
+    public String xtgl(){
         //xtglService.rongDuan("hhhhhhhh");
        // xtglService.jiangJi("yyyyyyyy");
         String str=null;
         NacosDataSourceProperties a=null;
+        System.out.println("我进来了 吼吼吼");
+        return "aaaaaaa";
 
        // str.equals("111");
 
